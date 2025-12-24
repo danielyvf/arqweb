@@ -148,7 +148,7 @@ main:has(.willem-header.is--loading) {
 .willem-content-overlay .architecture-text {
     color: #fff;
     opacity: 0.5;
-    margin-top: 210px;
+    margin-top: 250px;
 }
 
 .willem__growing-image {
