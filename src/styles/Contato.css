@@ -1,0 +1,83 @@
+.contato {
+  position: relative;
+  height: 100vh;
+  background-image: url('/imagens/contato-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+}
+
+.contato::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5); /* escurece a imagem */
+  z-index: 1;
+}
+
+/* Caixa centralizada */
+.contato-box {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0,0,0,0.4); /* fundo transparente */
+  border: 2px solid white;           /* borda visível */
+  border-radius: 15px;
+  padding: 80px;
+  max-width: 500px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;                          /* espaçamento interno */
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* Inputs e textarea dentro da caixa */
+.contato-box input,
+.contato-box textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  margin-top: 20px;
+}
+
+.contato-box input::placeholder,
+.contato-box textarea::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Botão */
+.contato-box button {
+  padding: 12px;
+  border: none;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: #dad1c6;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contato-box button:hover {
+  background-color: #9c8f7f;
+}
+
+.contato h2 {
+  font-size: 4em;
+  font-family: "Zalando Sans Expanded", sans-serif;
+}
+
+.contato p {
+  font-family: "Zalando Sans Expanded", sans-serif;
+}

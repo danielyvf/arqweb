@@ -1,0 +1,142 @@
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Cor de fundo inicial */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  z-index: 1000;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+/* Navbar com efeito de rolagem */
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.85); /* Cor de fundo mais escura ao rolar */
+}
+
+/* Estilo da lista e dos links */
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin: 0 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Efeito de hover nos links */
+.navbar ul li a:hover {
+  color: #ff6600; /* Cor de destaque laranja */
+  transform: scale(1.1); /* Efeito de zoom */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Efeito de sombra no texto */
+}
+
+/* 1. ESTILOS BASE (DESKTOP) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  z-index: 1000;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin: 0 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+  white-space: nowrap; /* Impede que o texto quebre linha */
+}
+
+.navbar ul li a:hover {
+  color: #ff6600;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* 2. RESPONSIVIDADE (ACRESCENTAR AO FINAL) */
+
+@media screen and (max-width: 850px) {
+  .navbar ul li {
+    margin: 0 10px; /* Reduz margens em tablets */
+  }
+  .navbar ul li a {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .navbar {
+    /* No mobile, alinhamos à esquerda para permitir o deslize lateral */
+    justify-content: flex-start; 
+    padding: 15px 0;
+  }
+
+  .navbar ul {
+    /* Ativa o scroll horizontal se os botões não couberem */
+    overflow-x: auto; 
+    padding: 0 20px;
+    width: 100%;
+    /* Esconde a barra de rolagem visualmente mas mantém a função */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
+  }
+
+  /* Esconde a barra de rolagem no Chrome/Safari */
+  .navbar ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navbar ul li {
+    margin: 0 15px;
+    flex: 0 0 auto; /* Importante: impede que os botões espremam o texto */
+  }
+
+  .navbar ul li a {
+    font-size: 0.85rem;
+  }
+  
+  /* Desativa o zoom no hover no mobile para não bugar o toque */
+  .navbar ul li a:hover {
+    transform: none;
+  }
+}

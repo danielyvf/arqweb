@@ -1,0 +1,259 @@
+body {
+    background-color: #f4f4f4;
+    font-family: PP Neue Montreal, Arial, sans-serif;
+    color: #201d1d;
+    font-weight: 400;
+    margin: 0; 
+    padding: 0; 
+    overscroll-behavior: none;
+    height: 100vh;
+}
+
+/* Garante que o elemento principal da aplicação ocupe a altura total */
+#root, html, body {
+    height: 100%;
+}
+
+/* CURSOR PERSONALIZADO */
+.cursor {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #201d1d;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out, background-color 0.3s ease;
+    z-index: 9999;
+}
+
+.cursor.active {
+    background-color: #201d1d;
+    transform: translate(-50%, -50%) scale(2.5);
+}
+
+/*ESTRUTURA, LAYOUT E POSICIONAMENTO */
+
+.willem__h1 {
+    white-space: nowrap;
+    justify-content: center;
+    font-size: 12.5em;
+    font-weight: 500;
+    line-height: .75;
+    display: flex;
+    position: relative;
+    opacity: 10;
+}
+
+.willem__letter,
+.willem__letter-white {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.willem__letter-white.is--space {
+    margin-left: 2.25em;
+}
+
+/* Disable Scroll on Loading */
+main:has(.willem-header.is--loading) {
+  height: 100dvh;
+}
+
+/* .willem-header {
+  color: #f4f4f4;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+} */
+
+.willem-header.is--loading.is--hidden {
+  display: none;
+}
+
+.willem-loader {
+  color: #201d1d;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: -80px;
+  left: 0;
+}
+
+.willem__h1 {
+  white-space: nowrap;
+  justify-content: center;
+  font-size: 12.5em;
+  font-weight: 500;
+  line-height: 1.95;
+  display: flex;
+  position: relative;
+}
+
+.willem__h1-start {
+  justify-content: flex-end;
+  width: 1.5256em;
+  display: flex;
+}
+
+.willem__h1-end {
+  justify-content: flex-start;
+  width: 1.525em;
+  display: flex;
+}
+
+.willem__letter {
+  display: block;
+  position: relative;
+}
+
+.willem-loader__box {
+  flex-flow: column;
+  width: 0;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center; 
+}
+
+.willem-loader__box-inner {
+  justify-content: center;
+  align-items: center;
+  min-width: 1em;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+/* TEXTO LONGO - CORREÇÃO DE QUEBRA */
+.architecture-text {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 1.0;
+    color: #201d1d;
+    margin-top: 20px;
+    opacity: 0.6;
+    max-width: 700px;    /* Largura controlada */
+    width: 90%;          /* Margem de segurança lateral */
+    display: block;
+    font-weight: 600;
+}
+
+/* Ajuste de cor para o fundo escuro */
+.willem-content-overlay .architecture-text {
+    color: #fff;
+    opacity: 0.5;
+    margin-top: 210px;
+}
+
+.willem__growing-image {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+}
+
+.willem__growing-image-wrap {
+  width: 100%;
+  min-width: 1em;
+  height: 100%;
+  position: absolute;
+  align-items: center;
+}
+
+.willem__cover-image,
+.willem__cover-image-extra {
+  pointer-events: none;
+  object-fit: cover;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.willem__cover-image-extra.is--1 { z-index: 3; }
+.willem__cover-image-extra.is--2 { z-index: 2; }
+.willem__cover-image-extra.is--3 { z-index: 1; }
+
+/* .willem-header__content {
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 100dvh;
+  padding: 3em;
+  display: flex;
+  position: relative;
+}
+
+.willem-header__top {
+  width: 100%;
+  position: relative;
+}
+
+.willem-header__bottom {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  position: relative;
+} */
+
+/* ----- AJUSTES DE RESPONSIVIDADE ----- */
+
+/* Base para Desktop (ajustando o que já existe) */
+.willem__h1 {
+    font-size: 12vw; /* Tamanho fluido baseado na largura da tela */
+    line-height: 1;
+}
+
+
+
+/* Tablets e Telas Médias */
+@media screen and (max-width: 991px) {
+    .willem__h1 {
+        font-size: 15vw;
+    }
+    .willem-loader {
+        top: -40px; /* Ajuste da centralização vertical em telas menores */
+    }
+}
+
+/* Celulares (Ajuste crítico) */
+@media screen and (max-width: 480px) {
+    .willem__h1 {
+        font-size: 18vw; /* Garante que HOUSES caiba sem scroll horizontal */
+    }
+    
+    .willem__h1-start, .willem__h1-end {
+        width: auto; /* Permite que as letras se agrupem melhor */
+    }
+
+    .willem-loader__box {
+        /* Garante que o quadrado central não fique gigante no celular */
+        min-width: 0.8em; 
+    }
+    
+    .willem-header__bottom {
+        padding: 1em;
+        justify-content: center;
+    }
+}
+
+/* Correção para o Cursor em dispositivos Touch */
+@media (hover: none) and (pointer: coarse) {
+    .cursor {
+        display: none; /* Esconde o cursor em celulares e tablets, pois não há mouse */
+    }
+}

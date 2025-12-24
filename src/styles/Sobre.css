@@ -1,0 +1,62 @@
+section {
+  margin-bottom: -100px;
+  padding: 80px;
+  text-align: center;
+}
+
+#sobre {
+  padding: 60px 40px;
+  margin-bottom: 50px;
+  background: #f4f4f4;
+}
+
+#sobre h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 8em;
+  font-family: "Zalando Sans Expanded", sans-serif;;
+}
+
+/* Aqui está o grid */
+#sobre {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 colunas iguais */
+  gap: 40px;                      /* espaço entre os textos */
+}
+
+#sobre p {
+  line-height: 1.6;
+  text-align: justify;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* 2. RESPONSIVIDADE (TABLETS) */
+@media screen and (max-width: 1024px) {
+  #sobre h2 {
+    font-size: 12vw; /* Fonte diminui proporcionalmente à largura da tela */
+  }
+}
+
+/* 3. RESPONSIVIDADE (CELULARES) */
+@media screen and (max-width: 768px) {
+  section {
+    padding: 40px 20px; /* Reduz o respiro lateral em telas pequenas */
+  }
+
+  #sobre {
+    display: flex; /* Muda de Grid para Flex para empilhar os textos */
+    flex-direction: column;
+    padding: 60px 20px;
+    gap: 20px;
+  }
+
+  #sobre h2 {
+    font-size: 15vw; /* Tamanho ajustado para celular */
+    margin-bottom: 20px;
+  }
+
+  #sobre p {
+    text-align: left; /* Justificado em celular costuma criar espaços brancos feios */
+    font-size: 1rem;
+  }
+}

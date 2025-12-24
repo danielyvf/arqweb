@@ -1,0 +1,283 @@
+/* No seu CSS (Effects.css ou Main.css) */
+body {
+    margin: 0; 
+    padding: 0; 
+}
+
+/* Garante que o elemento principal da aplicação ocupe a altura total */
+#root, html, body {
+  height: 100%;
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo inicial */
+  transition: background-color 0.3s ease; /* Suaviza a transição de fundo */
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+}
+
+/* Navbar: muda fundo ao rolar a página */
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.241); /* Cor do fundo quando a página rola */
+  transition: background-color 0.3s ease;
+}
+
+/* Navbar: links */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: 'SF Mono Heavy', monospace;
+  letter-spacing: 2px;
+  transition: color 0.3s ease; /* Efeito suave de cor */
+}
+
+/* Efeito de cor ao passar o mouse (hover) nos links da navbar */
+.navbar ul li a:hover {
+  color: #9c8f7f; /* Cor quando passar o mouse */
+}
+
+
+/* Cursor personalizado */
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s ease;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.cursor.active {
+  width: 60px;
+  height: 60px;
+  background: rgba(240, 237, 237, 0.1);
+}
+
+/* Hover e clique nos textos */
+h1:hover,
+h2:hover,
+button:hover,
+ul:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+h1.active,
+h2.active,
+button.active,
+ul:hover {
+  transform: scale(1.1);
+
+}
+
+/* @font-face para SF Mono */
+@font-face {
+  font-family: 'SF Mono';
+  src: url('/fonts/SF-Mono-Regular.ttf') format('truetype'),
+       url('/fonts/SF-Mono-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Para o caso de ter variações de peso, como negrito */
+@font-face {
+  font-family: 'SF Mono';
+  src: url('/fonts/SF-Mono-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+/* Ken Burns */
+@keyframes zoomIn {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+
+/* Disable Scroll on Loading */
+main:has(.willem-header.is--loading) {
+  height: 100dvh;
+}
+
+.willem-header {
+  color: #f4f4f4;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Loading: Hidden */
+.willem-header.is--loading.is--hidden {
+  display: none;
+}
+
+
+.willem-loader {
+  color: #201d1d;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: -80px;
+  left: 0;
+  padding: 0;
+
+}
+
+.willem__h1 {
+  white-space: nowrap;
+  justify-content: center;
+  font-size: 12.5em;
+  font-weight: 500;
+  line-height: 2.00;
+  display: flex;
+  position: relative;
+}
+
+.willem__h1-start {
+  justify-content: flex-end;
+  width: 1.5256em;
+  display: flex;
+}
+
+.willem__h1-end {
+  justify-content: flex-start;
+  width: 1.525em;
+  display: flex;
+}
+
+.willem__letter {
+  display: block;
+  position: relative;
+}
+
+.willem__letter-white.is--space {
+  margin-left: .25em;
+}
+
+.willem-loader__box {
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 0px;
+  display: flex;
+  position: relative;
+}
+
+.willem-loader__box-inner {
+  justify-content: center;
+  align-items: center;
+  min-width: 1em;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.willem__growing-image {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+}
+
+.willem__growing-image-wrap {
+  width: 100%;
+  min-width: 1em;
+  height: 100%;
+  position: absolute;
+}
+
+.willem__cover-image {
+  pointer-events: none;
+  object-fit: cover;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.willem__cover-image-extra {
+  pointer-events: none;
+  object-fit: cover;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.willem__cover-image-extra.is--1 {
+  z-index: 3;
+}
+
+.willem__cover-image-extra.is--2 {
+  z-index: 2;
+}
+
+.willem__cover-image-extra.is--3 {
+  z-index: 1;
+}
+
+.willem-header__content {
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 100dvh;
+  padding: 3em;
+  display: flex;
+  position: relative;
+}
+
+.willem-header__top {
+  width: 100%;
+  position: relative;
+}
+
+.willem-header__bottom {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.willem__letter-white {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+
